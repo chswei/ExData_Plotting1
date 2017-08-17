@@ -7,8 +7,8 @@ data <- read.table("./ExData_Plotting1/household_power_consumption.txt",
 colnames(data) <- c("Date", "Time", "Global_active_power", 
                     "Global_reactive_power", "Voltage", "Global_intensity", 
                     "Sub_metering_1", "Sub_metering_2", "Sub_metering_3")
-data$Date <- as.Date(data$Date, format = "%d/%m/%Y")
-data$Time <- strptime(data$Time, format = "%H:%M:%S")
+data$Date_Time <- paste(data$Date, data$Time)
+data$Date_Time <- strptime(data$Date_Time, format = "%d/%m/%Y %H:%M:%S")
 png("./ExData_Plotting1/plot1.png", width = 480, height = 480, units = "px")
 hist(data$Global_active_power, col = "red", 
      xlab = "Global Active Power (kilowatts)", main = "Global Active Power")
