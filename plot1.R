@@ -9,5 +9,7 @@ colnames(data) <- c("Date", "Time", "Global_active_power",
                     "Sub_metering_1", "Sub_metering_2", "Sub_metering_3")
 data$Date <- as.Date(data$Date, format = "%d/%m/%Y")
 data$Time <- strptime(data$Time, format = "%H:%M:%S")
+png("./ExData_Plotting1/plot1.png", width = 480, height = 480, units = "px")
 hist(data$Global_active_power, col = "red", 
      xlab = "Global Active Power (kilowatts)", main = "Global Active Power")
+dev.off()
